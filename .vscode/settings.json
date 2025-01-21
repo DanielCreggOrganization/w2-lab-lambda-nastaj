@@ -2,13 +2,17 @@
     "editor.minimap.enabled": false,
     "editor.inlayHints.enabled": "off",
     "files.exclude": {
-        "**/.devcontainer": true,
+        "**/.devcontainer": false,
         "**/.vscode": true,
         "**/.gitignore": true,
+        "**/README.md": true,
         "**/.github": true,
     },
     "java.server.launchMode": "Standard",
     "java.dependency.packagePresentation": "flat",
+    "java.project.sourcePaths": [
+        "src"
+    ],
     "redhat.telemetry.enabled": false,
     "git.autofetch": true,
     "workbench.tree.indent": 30,
@@ -17,8 +21,4 @@
         "tree.indentGuidesStroke": "#05ef3c"
     },
     "workbench.colorTheme": "Default Dark Modern",
-    // add src as java source
-    "java.project.sourcePaths": [
-        "src"
-    ],
 }

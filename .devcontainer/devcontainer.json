@@ -10,7 +10,7 @@
         "visualstudioexptteam.vscodeintellicode",
         "github.copilot@prerelease",
         "github.copilot-chat@prerelease",
-				"bierner.markdown-mermaid"
+	"bierner.markdown-mermaid"
       ]
     }
   }

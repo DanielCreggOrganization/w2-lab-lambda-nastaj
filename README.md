@@ -11,10 +11,6 @@ By the end of this lab, you should be able to:
 2. Create your own interface with a single abstract method.
 3. Write and use lambda expressions to simplify code.
 
-## Pre-requisites
-- Basic knowledge of Java syntax.
-- Familiarity with methods and basic classes.
-
 ## Part 1: Understanding Interfaces
 
 ### What is an Interface?

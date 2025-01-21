@@ -1,6 +1,3 @@
-
----
-
 # Lab: Introduction to Lambda Expressions in Java
 
 ## Objective
@@ -10,6 +7,7 @@ By the end of this lab, you should be able to:
 1. Understand the purpose of interfaces in Java.
 2. Create your own interface with a single abstract method.
 3. Write and use lambda expressions to simplify code.
+4. Put it all together
 
 ## Part 1: Understanding Interfaces
 
@@ -44,6 +42,20 @@ public class Main {
 }
 ```
 
+#### Diagram: Relationship Between Interface and Implementation
+
+```mermaid
+classDiagram
+    class MathOperation {
+        <<interface>>
+        +int operate(int a, int b)
+    }
+    class Addition {
+        +int operate(int a, int b)
+    }
+    MathOperation <|-- Addition
+```
+
 ### Try It Yourself: Create Your Own Interface
 1. **Create a new interface** named `StringOperation` with a single abstract method `apply` that takes a single `String` parameter and returns a `String`.
 2. **Create a class** called `ToUpperCase` that implements `StringOperation` and overrides the `apply` method to convert the input string to uppercase.
@@ -73,6 +85,16 @@ public class Main {
         System.out.println("Addition: " + addition.operate(5, 3));
     }
 }
+```
+
+#### Diagram: Workflow of Refactoring to Lambda Expressions
+
+```mermaid
+flowchart TD
+    A[Start: Implement Functional Interface] --> B[Define Abstract Method]
+    B --> C[Traditional Class Implementation]
+    C --> D[Refactor with Lambda Expression]
+    D --> E[Concise and Readable Code]
 ```
 
 ### Explanation
@@ -124,6 +146,18 @@ public class Main {
 }
 ```
 
+#### Diagram: Simplifying Runnable with Lambdas
+
+```mermaid
+sequenceDiagram
+    participant Developer
+    participant Code
+    Developer->>Code: Create Runnable (Traditional)
+    Code-->>Developer: Implementation with Anonymous Class
+    Developer->>Code: Refactor to Lambda Expression
+    Code-->>Developer: Concise Runnable Implementation
+```
+
 ### Explanation
 
 In the above example:
@@ -159,24 +193,6 @@ Let's create our own functional interface and use lambda expressions with it.
 2. **In your `main` method**, create a lambda expression that implements `Calculator` to compute the square of a number.
 3. **Test your lambda** by calling the `calculate` method with a number of your choice.
 
-**Sample Solution:**
-
-```java
-interface Calculator {
-    int calculate(int x);
-}
-```
-```java
-public class Main {
-    public static void main(String[] args) {
-        Calculator square = (int x) -> x * x;
-        
-        int result = square.calculate(5);
-        System.out.println("Square of 5 is: " + result);
-    }
-}
-```
-
 ## Part 4: Putting It All Together
 
 Let’s build a final example that combines multiple lambda expressions. Here we will use a Java inbuilt functional interface called `Function`. It can take one argument and produces a result.
@@ -203,6 +219,16 @@ public class Main {
 }
 ```
 
+#### Diagram: Lambda Chaining Process
+
+```mermaid
+flowchart LR
+    A[Input String] --> B[Trim Whitespace]
+    B --> C[Replace Spaces with Hyphens]
+    C --> D[Convert to Lowercase]
+    D --> E[Output Result]
+```
+
 ### Explanation
 
 In this example:
@@ -210,42 +236,6 @@ In this example:
 - We used `Function<String, String>` to define lambdas that reverse a string and convert it to uppercase.
 - We combined these operations using `andThen` to create a new operation.
 - The `andThen` method executes the first function and passes its result to the second function.
-
-### Try It Yourself: Create Your Own Lambda Chain
-
-1. **Create three lambdas**:
-   - One that trims whitespace from a string.
-   - One that replaces spaces with hyphens (`-`).
-   - One that converts the text to lowercase.
-2. **Combine these lambdas** using `andThen` or `compose`.
-3. **Test your chain** with a string of your choice.
-
-**Sample Solution:**
-
-```java
-import java.util.function.Function;
-
-public class Main {
-    public static void main(String[] args) {
-        Function<String, String> trim = s -> s.trim();
-        Function<String, String> replaceSpaces = s -> s.replace(" ", "-");
-        Function<String, String> toLowerCase = s -> s.toLowerCase();
-
-        // Combine the lambdas
-        Function<String, String> combinedOperation = trim.andThen(replaceSpaces).andThen(toLowerCase);
-
-        // Test the combined operation
-        String result = combinedOperation.apply("   Hello World From Lambda   ");
-        System.out.println("Result: " + result);
-    }
-}
-```
-
-**Expected Output:**
-
-```
-Result: hello-world-from-lambda
-```
 
 ## Summary
 

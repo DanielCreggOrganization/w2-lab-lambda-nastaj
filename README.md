@@ -1,5 +1,24 @@
 # Lab: Introduction to Lambda Expressions in Java
 
+## Agenda
+- [Objective](#objective)
+- [Part 1: Understanding Interfaces](#part-1-understanding-interfaces)
+  - [What is an Interface?](#what-is-an-interface)
+  - [Example: Creating and Using an Interface](#example-creating-and-using-an-interface)
+  - [DIY: Create Your Own Interface](#diy-create-your-own-interface)
+- [Part 2: Moving to Lambda Expressions](#part-2-moving-to-lambda-expressions)
+  - [What is a Lambda Expression?](#what-is-a-lambda-expression)
+  - [Syntax of a Lambda Expression](#syntax-of-a-lambda-expression)
+  - [Example: Using a Lambda Expression](#example-using-a-lambda-expression)
+  - [DIY: Refactor with Lambdas](#diy-refactor-with-lambdas)
+- [Part 3: Benefits of Lambda Expressions](#part-3-benefits-of-lambda-expressions)
+  - [Example: Simplifying Threads with Lambdas](#example-simplifying-threads-with-lambdas)
+  - [DIY: Simplify Runnable](#diy-simplify-runnable)
+- [Part 4: Putting It All Together](#part-4-putting-it-all-together)
+  - [Example: Combining Operations](#example-combining-operations)
+  - [DIY: Practice Lambda Chaining](#diy-practice-lambda-chaining)
+- [Summary](#summary)
+
 ## Objective
 This lab will introduce you to the concept of lambda expressions in Java. We’ll start by understanding what interfaces are, work with a basic example, and then move towards creating and using lambda expressions.
 
@@ -7,7 +26,7 @@ By the end of this lab, you should be able to:
 1. Understand the purpose of interfaces in Java.
 2. Create your own interface with a single abstract method.
 3. Write and use lambda expressions to simplify code.
-4. Put it all together
+4. Put it all together.
 
 ## Part 1: Understanding Interfaces
 
@@ -23,7 +42,9 @@ interface MathOperation {
     int operate(int a, int b); // Single abstract method
 }
 ```
-Next Create a class called `Addition`.
+
+Next, create a class called `Addition`.
+
 ```java
 // Implement the interface using a class
 class Addition implements MathOperation {
@@ -32,7 +53,9 @@ class Addition implements MathOperation {
     }
 }
 ```
-Finally, create a class called `Main`. Add the `main` method. Create an instance of the MathOperation interface using the Addition class. Finally we call the `operate` method of the `addition` object and print the result.
+
+Finally, create a class called `Main`. Add the `main` method. Create an instance of the MathOperation interface using the Addition class. Finally, call the `operate` method of the `addition` object and print the result.
+
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -160,7 +183,6 @@ sequenceDiagram
 ### Explanation
 
 In the above example:
-
 - The `Runnable` interface is a functional interface with a single abstract method `run()`.
 - We replaced the anonymous inner class with a lambda expression `() -> System.out.println("Thread is running")`.
 - This makes the code more concise and easier to read.
@@ -170,27 +192,6 @@ In the above example:
 1. **Create a `Runnable` instance** using a lambda expression that prints "Hello from the thread".
 2. **Start a new thread** with this `Runnable`.
 3. **Observe the output** to ensure your thread is running as expected.
-
-**Sample Solution:**
-
-```java
-public class Main {
-    public static void main(String[] args) {
-        Runnable task = () -> System.out.println("Hello from the thread");
-        
-        Thread thread = new Thread(task);
-        thread.start();
-    }
-}
-```
-
-### Exercise: Custom Functional Interface
-
-Let's create our own functional interface and use lambda expressions with it.
-
-1. **Define an interface** named `Calculator` with a single abstract method `calculate(int x)`.
-2. **In your `main` method**, create a lambda expression that implements `Calculator` to compute the square of a number.
-3. **Test your lambda** by calling the `calculate` method with a number of your choice.
 
 ## Part 4: Putting It All Together
 
@@ -231,10 +232,15 @@ flowchart LR
 ### Explanation
 
 In this example:
-
 - We used `Function<String, String>` to define lambdas that reverse a string and convert it to uppercase.
 - We combined these operations using `andThen` to create a new operation.
 - The `andThen` method executes the first function and passes its result to the second function.
+
+### DIY: Practice Lambda Chaining
+
+1. **Create a `Function<String, String>` instance** that trims spaces from a string.
+2. **Combine it** with a lambda that converts the string to lowercase.
+3. **Test the combined operation** on a string of your choice.
 
 ## Summary
 

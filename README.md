@@ -56,7 +56,7 @@ classDiagram
     MathOperation <|-- Addition
 ```
 
-### Try It Yourself: Create Your Own Interface
+### DIY: Create Your Own Interface
 1. **Create a new interface** named `StringOperation` with a single abstract method `apply` that takes a single `String` parameter and returns a `String`.
 2. **Create a class** called `ToUpperCase` that implements `StringOperation` and overrides the `apply` method to convert the input string to uppercase.
 3. **Test it** by creating an instance of `ToUpperCase` in your `main` method and calling the `apply` method with a string of your choice.
@@ -81,7 +81,6 @@ public class Main {
     public static void main(String[] args) {
         // Using a lambda expression instead of implementing the interface via a class
         MathOperation addition = (a, b) -> a + b;
-        
         System.out.println("Addition: " + addition.operate(5, 3));
     }
 }
@@ -102,7 +101,7 @@ In the above example:
 - The lambda expression `(a, b) -> a + b` is used to define the `operate` method of the `MathOperation` interface.
 - It takes two parameters (`a` and `b`) and returns their sum.
 
-### Try It Yourself: Refactor with Lambdas
+### DIY: Refactor with Lambdas
 1. Refactor your `StringOperation` interface from Part 1 to use a lambda expression in the `main` method.
 2. Replace the implementation of `ToUpperCase` with a lambda that converts the string to uppercase.
 
@@ -166,7 +165,7 @@ In the above example:
 - We replaced the anonymous inner class with a lambda expression `() -> System.out.println("Thread is running")`.
 - This makes the code more concise and easier to read.
 
-### Try It Yourself: Simplify Runnable
+### DIY: Simplify Runnable
 
 1. **Create a `Runnable` instance** using a lambda expression that prints "Hello from the thread".
 2. **Start a new thread** with this `Runnable`.

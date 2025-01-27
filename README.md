@@ -82,8 +82,8 @@ classDiagram
 
 ### DIY: Create Your Own Interface
 1. **Create a new interface** named `StringOperation` with a single abstract method `apply` that takes a single `String` parameter and returns a `String`.
-2. **Create a class** called `ToUpperCase` that implements `StringOperation` and overrides the `apply` method to convert the input string to uppercase.
-3. **Test it** by creating an instance of `ToUpperCase` in your `main` method and calling the `apply` method with a string of your choice.
+3. **Create a class** called `UpperCaseConverter` that implements `StringOperation` and overrides the `apply` method to convert the input string to uppercase.
+4. **Test it** by creating an instance of `UpperCaseConverter` in your `main` method and calling the `apply` method with a string of your choice.
 
 ## Part 2: Moving to Lambda Expressions
 
